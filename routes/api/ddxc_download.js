@@ -3,7 +3,11 @@ const path = require("path");
 const router = express.Router();
 
 router.get("/:filename", (req, res) => {
-  const absPath = path.resolve(__dirname, "./file", req.params.filename);
+  const absPath = path.resolve(
+    __dirname,
+    "../../resources/file",
+    req.params.filename
+  );
   console.log("absPath", absPath);
   res.download(absPath, req.params.filename);
 });
